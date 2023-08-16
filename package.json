@@ -24,7 +24,7 @@
     "build2": "npx typescript-module-alias-build ./src --out-dir dist",
     "build": "npx tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o dist",
     "server": "node dist/server.js",
-    "prod": "NODE_ENV=production npm-run-all build server",
+    "prod": "cross-env NODE_ENV=production npm-run-all build server",
     "transpile": "babel ./src --out-dir dist --copy-files",
     "clean": "rimraf dist",
     "watch:dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\"",
@@ -66,9 +66,12 @@
     "@types/node": "^20.5.0",
     "@types/validator": "^13.11.1",
     "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^5.1.6"
   }
 }
